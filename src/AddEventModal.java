@@ -23,7 +23,7 @@ public class AddEventModal extends JDialog
         setTitle("Add New Event");
         setSize(400, 300);
         setLayout(new GridLayout(7, 2));
-        getContentPane().setBackground(Color.WHITE); // Add this line
+        getContentPane().setBackground(Color.WHITE); // add color
 
         // user input fields
         name = new JTextField();
@@ -86,3 +86,4 @@ public class AddEventModal extends JDialog
         dispose(); // close after adding event
     }
 }
+
