@@ -27,7 +27,7 @@ public class EventListPanel extends JPanel
         setLayout(new BorderLayout());
         headerPanel = new JPanel();
         headerPanel.setLayout(new FlowLayout());
-        headerPanel.setBackground(Color.WHITE);
+        headerPanel.setBackground(new Color(173, 216, 230));
 
         // ------------------------------- sort dropdown -------------------------------------------
         // sort dropdown logic
