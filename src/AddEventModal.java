@@ -1,5 +1,3 @@
-// Add Event button logic
-
 import javax.swing.*;
 import java.awt.*;
 import java.time.LocalDateTime;
@@ -21,15 +19,23 @@ public class AddEventModal extends JDialog
     {
         this.panel = panel;
         setTitle("Add New Event");
-        setSize(400, 300);
-        setLayout(new GridLayout(7, 2));
+        setSize(400, 400);
+        setLayout(new BorderLayout());
         getContentPane().setBackground(Color.WHITE); // add color
 
+        // main panel for centering content
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+        mainPanel.setBackground(Color.WHITE);
+
+        // add padding around the edges
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
         // user input fields
-        name = new JTextField();
-        dateTime = new JTextField("yyyy-MM-dd HH:mm");
-        endDateTimeTxt = new JTextField("yyyy-MM-dd HH:mm");
-        location = new JTextField();
+        name = new JTextField(20);
+        dateTime = new JTextField("yyyy-MM-dd HH:mm", 20);
+        endDateTimeTxt = new JTextField("yyyy-MM-dd HH:mm", 20);
+        location = new JTextField(20);
 
         // choose from meeting or deadline
         eventType = new JComboBox<>(new String[]{"Meeting", "Deadline"}); // add dropdown
@@ -38,20 +44,37 @@ public class AddEventModal extends JDialog
         submit = new JButton("Add Event");
         submit.addActionListener(e -> addNewEvent()); // trigger func
 
-        // modal layout----------------------------
-        add(new JLabel("Event Name:"));
-        add(name);
-        add(new JLabel("Event Start Time:"));
-        add(dateTime);
-        add(new JLabel("Event End Time:"));
-        add(endDateTimeTxt);
-        add(new JLabel("Location:"));
-        add(location);
-        add(new JLabel("Event Type:"));
-        add(eventType);
-        add(submit);
-        toggleMeetingFields();
+        // centered labels and fields
+        mainPanel.add(createLabeledComponent("Event Name:", name));
+        mainPanel.add(createLabeledComponent("Event Start Time:", dateTime));
+        mainPanel.add(createLabeledComponent("Event End Time:", endDateTimeTxt));
+        mainPanel.add(createLabeledComponent("Location:", location));
+        mainPanel.add(createLabeledComponent("Event Type:", eventType));
+
+        // add the submit button at the bottom
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setBackground(Color.WHITE);
+        buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        buttonPanel.add(submit);
+
+        // add the panels to the modal
+        add(mainPanel, BorderLayout.CENTER);
+        add(buttonPanel, BorderLayout.SOUTH);
+
+        toggleMeetingFields(); // initially hide fields if needed
         setVisible(true);
+    }
+
+    // create label
+    private JPanel createLabeledComponent(String labelText, JComponent component)
+    {
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        panel.setBackground(Color.WHITE);
+        JLabel label = new JLabel(labelText);
+        panel.add(label);
+        panel.add(component);
+        return panel;
     }
 
     // visibility controls
@@ -86,4 +109,3 @@ public class AddEventModal extends JDialog
         dispose(); // close after adding event
     }
 }
-
