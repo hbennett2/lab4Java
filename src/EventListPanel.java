@@ -29,6 +29,13 @@ public class EventListPanel extends JPanel
         headerPanel.setLayout(new FlowLayout());
         headerPanel.setBackground(new Color(173, 216, 230));
 
+
+        // ------------------------------- add event button -------------------------------------------
+        addEventButton = new JButton("Add Event");
+        addEventButton.setBackground(Color.WHITE);
+        addEventButton.addActionListener(e -> new AddEventModal(this)); // call modal
+        headerPanel.add(addEventButton);
+        add(headerPanel, BorderLayout.NORTH);
         // ------------------------------- sort dropdown -------------------------------------------
         // sort dropdown logic
         String[] sortBy = {"Sort by Name", "Sort by Name (Reverse)", "Sort by Date", "Sort by Date (Reverse)"}; // list of options
@@ -63,13 +70,6 @@ public class EventListPanel extends JPanel
         });
         checkFilter.setBackground(Color.WHITE);
         headerPanel.add(checkFilter);
-
-        // ------------------------------- add event button -------------------------------------------
-        addEventButton = new JButton("Add Event");
-        addEventButton.setBackground(Color.WHITE);
-        addEventButton.addActionListener(e -> new AddEventModal(this)); // call modal
-        headerPanel.add(addEventButton);
-        add(headerPanel, BorderLayout.NORTH);
 
         // ------------------------------- event list panel -------------------------------------------
         listModel = new DefaultListModel<>();
