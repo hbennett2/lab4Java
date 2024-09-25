@@ -1,98 +1,105 @@
+// Create main display and header tab
+// HeaderPanel(dropdowns/buttons) and calendarPanel(events)
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class EventListPanel extends JPanel {
-    private ArrayList<Event> events; // list of events
-    private JPanel controlPanel;  // panel for controls
-    private JPanel displayPanel;  // panel to display EventPanels
-    private JComboBox<String> sortDropDown; // dropdown to sort events
-    private JComboBox<String> filterDropDown; // dropdown to filter events by type
-    private JCheckBox filterDisplay;  // checkbox to filter completed events
-    private JButton addEventButton;  // button to add a new event
+public class EventListPanel extends JPanel
+{
+    // variables!
+    private ArrayList<Event> events; // put events in list
+    private JPanel headerPanel;
+    private JButton addEventButton; // user controls
+    private JComboBox<String> sortButton; // sort dropdown button
+    private JComboBox<String> filterButton; // filter dropdown button
+    private JCheckBox checkFilter;
+    private JPanel calendarPanel;  // displays events
 
-
-    public EventListPanel() {
+    public EventListPanel()
+    {
         events = new ArrayList<>();
         setLayout(new BorderLayout());
+        headerPanel = new JPanel();
+        headerPanel.setLayout(new FlowLayout());
+        headerPanel.setBackground(Color.WHITE);
 
-        // create control panel
-        controlPanel = new JPanel();
-        controlPanel.setLayout(new FlowLayout());
+        // ------------------------------- sort dropdown -------------------------------------------
+        // sort dropdown logic
+        String[] sortBy = {"Sort by Name", "Sort by Name (Reverse)", "Sort by Date", "Sort by Date (Reverse)"}; // list of options
+        sortButton = new JComboBox<>(sortBy);
+        sortButton.addActionListener(e -> sortEvents((String) sortButton.getSelectedItem()));
+        headerPanel.add(sortButton);
 
-        // sort dropdown options
-        String[] sortOptions = {"Sort by Name", "Sort by Date", "Sort by Name (Reverse)", "Sort by Date (Reverse)"};
-        sortDropDown = new JComboBox<>(sortOptions);
-        sortDropDown.addActionListener(e -> sortEvents((String) sortDropDown.getSelectedItem()));
-        controlPanel.add(sortDropDown);
-
-        // filter by event type dropdown
-        String[] filterOptions = {"All Events", "Deadlines", "Meetings"};
-        filterDropDown = new JComboBox<>(filterOptions);
-        filterDropDown.addActionListener(new ActionListener() {
+        // ------------------------------- filter dropdown -------------------------------------------
+        String[] filterOptions = {"All Events", "Deadlines", "Meetings"}; // list of options
+        filterButton = new JComboBox<>(filterOptions);
+        filterButton.addActionListener(new ActionListener()
+        {
             @Override
             public void actionPerformed(ActionEvent e) {
-                filterEventsByType((String) filterDropDown.getSelectedItem());
+                filterEventsByType((String) filterButton.getSelectedItem());
             }
         });
-        controlPanel.add(new JLabel("Filter by Type:"));
-        controlPanel.add(filterDropDown);
 
-        // filter checkbox for completed events
-        filterDisplay = new JCheckBox("Show Completed Events");
-        filterDisplay.setSelected(true);
-        filterDisplay.addActionListener(new ActionListener() {
+        headerPanel.add(new JLabel("Filter by Type:"));
+        headerPanel.add(filterButton);
+
+        // ------------------------------- completion checkbox -------------------------------------------
+        checkFilter = new JCheckBox("Show Completed Events");
+        checkFilter.setSelected(true); // sets checked as true
+        checkFilter.addActionListener(new ActionListener()
+        {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e)
+            {
                 filterEvents();
             }
         });
-        controlPanel.add(filterDisplay);
+        headerPanel.add(checkFilter);
 
-        // add event button
+        // ------------------------------- add event button -------------------------------------------
         addEventButton = new JButton("Add Event");
-        addEventButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        addEventButton.addActionListener(e -> new AddEventModal(this)); // call modal
+        headerPanel.add(addEventButton);
+        add(headerPanel, BorderLayout.NORTH);
 
-        // open modal to add events
-        addEventButton.addActionListener(e -> new AddEventModal(this));
-
-        // add button to controlPanel
-        controlPanel.add(addEventButton);
-
-        add(controlPanel, BorderLayout.NORTH);
-
-        // create display panel and add it to the center
-        displayPanel = new JPanel();
-        displayPanel.setLayout(new BoxLayout(displayPanel, BoxLayout.Y_AXIS));
-        JScrollPane scrollPane = new JScrollPane(displayPanel);
+        // ------------------------------- calendar display -------------------------------------------
+        calendarPanel = new JPanel();
+        calendarPanel.setLayout(new BoxLayout(calendarPanel, BoxLayout.Y_AXIS));
+        JScrollPane scrollPane = new JScrollPane(calendarPanel); // add scrollbar
         add(scrollPane, BorderLayout.CENTER);
     }
 
-    // method to add an Event to the list and update the display
-    public void addEvent(Event event) {
-        events.add(event);
-        refreshDisplay();
+    public void addEvent(Event event)
+    {
+        events.add(event); // add event to list
+        refreshDisplay(); // func call
     }
 
-    // refresh the display panel
-    private void refreshDisplay() {
-        displayPanel.removeAll();
-        for (Event event : events) {
-            EventPanel eventPanel = new EventPanel(event);
-            displayPanel.add(eventPanel);
+    private void refreshDisplay()
+    {
+        calendarPanel.removeAll(); // clear
+
+        // create new/updated list
+        for (Event i : events)
+        {
+            displayEvent(i); // use displayEvent to center events
         }
-        displayPanel.revalidate();
-        displayPanel.repaint();
+
+        calendarPanel.revalidate();
+        calendarPanel.repaint();
     }
 
-    // method to sort events based on selected sorting option
-    private void sortEvents(String sortOption) {
-        switch (sortOption) {
+    // sort events from dropdown
+    private void sortEvents(String sortBy)
+    {
+        switch (sortBy)
+        {
             case "Sort by Name":
                 Collections.sort(events, Comparator.comparing(Event::getName));
                 break;
@@ -109,40 +116,67 @@ public class EventListPanel extends JPanel {
         refreshDisplay();
     }
 
-    // method to filter events based on the checkbox
-    private void filterEvents() {
-        displayPanel.removeAll();
-        for (Event event : events) {
-            if (filterDisplay.isSelected() || !(event instanceof Completable) || !((Completable) event).isComplete()) {
-                EventPanel eventPanel = new EventPanel(event);
-                displayPanel.add(eventPanel);
+    // checkbox filter!
+    private void filterEvents()
+    {
+        calendarPanel.removeAll(); // clear
+
+        for (Event event : events)
+        {
+            if (checkFilter.isSelected())
+            {
+                // show complete events only
+                if (event instanceof Completable && ((Completable) event).isComplete())
+                {
+                    displayEvent(event);
+                }
+            }
+            else // if checkFilter is not selected
+            {
+                if (!(event instanceof Completable) || !((Completable) event).isComplete())
+                {
+                    displayEvent(event); // display events that are not complete
+                }
             }
         }
-        displayPanel.revalidate();
-        displayPanel.repaint();
+        calendarPanel.revalidate();
+        calendarPanel.repaint();
     }
 
-    // method to filter events by type (Deadlines or Meetings)
-    private void filterEventsByType(String filterOption) {
-        displayPanel.removeAll();
+    // filter events by type
+    private void filterEventsByType(String filterBy)
+    {
+        calendarPanel.removeAll();
 
-        for (Event event : events) {
-            if (filterOption.equals("All Events")) {
-                displayEvent(event);
-            } else if (filterOption.equals("Deadlines") && event instanceof Deadline) {
-                displayEvent(event);
-            } else if (filterOption.equals("Meetings") && event instanceof Meeting) {
-                displayEvent(event);
+        for (Event i : events)
+        {
+            if (filterBy.equals("All Events"))
+            {
+                displayEvent(i); // use displayEvent to center events
+            } else if (filterBy.equals("Deadlines") && i instanceof Deadline)
+            {
+                displayEvent(i); // use displayEvent to center events
+            } else if (filterBy.equals("Meetings") && i instanceof Meeting)
+            {
+                displayEvent(i); // use displayEvent to center events
             }
         }
-
-        displayPanel.revalidate();
-        displayPanel.repaint();
+        calendarPanel.revalidate();
+        calendarPanel.repaint();
     }
 
-
-    private void displayEvent(Event event) {
+    // method to display the event and center it in the panel
+    private void displayEvent(Event event)
+    {
         EventPanel eventPanel = new EventPanel(event);
-        displayPanel.add(eventPanel);
+        eventPanel.setBackground(Color.WHITE);
+
+        // extra panel to center calendar
+        JPanel center = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        center.setBackground(Color.WHITE);
+        center.add(eventPanel);
+
+        // add the wrapper panel to the calendar panel
+        calendarPanel.add(center);
     }
 }
