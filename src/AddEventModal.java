@@ -1,84 +1,88 @@
+// Add Event button logic
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class AddEventModal extends JDialog {
-    private JTextField nameField;
-    private JTextField dateTimeField;
-    private JTextField endDateTimeField;
-    private JTextField locationField;
-    private JComboBox<String> eventTypeDropDown;
-    private JButton submitButton;
+public class AddEventModal extends JDialog
+{
+    // variables!
+    private JTextField name;
+    private JTextField dateTime;
+    private JTextField endDateTimeTxt;
+    private JTextField location;
+    private JButton submit;
+    private JComboBox<String> eventType;
+    private EventListPanel panel;
 
-    private EventListPanel eventListPanel;
-
-    // constructor to initialize the dialog
-    public AddEventModal(EventListPanel eventListPanel) {
-        this.eventListPanel = eventListPanel;
+    // constructor
+    public AddEventModal(EventListPanel panel)
+    {
+        this.panel = panel;
         setTitle("Add New Event");
         setSize(400, 300);
         setLayout(new GridLayout(7, 2));
+        getContentPane().setBackground(Color.WHITE); // Add this line
 
+        // user input fields
+        name = new JTextField();
+        dateTime = new JTextField("yyyy-MM-dd HH:mm");
+        endDateTimeTxt = new JTextField("yyyy-MM-dd HH:mm");
+        location = new JTextField();
 
-        nameField = new JTextField();
-        dateTimeField = new JTextField("yyyy-MM-dd HH:mm");
-        endDateTimeField = new JTextField("yyyy-MM-dd HH:mm");
-        locationField = new JTextField();  // Only for Meeting
+        // choose from meeting or deadline
+        eventType = new JComboBox<>(new String[]{"Meeting", "Deadline"}); // add dropdown
+        eventType.addActionListener(e -> toggleMeetingFields()); // allow user to change
 
+        submit = new JButton("Add Event");
+        submit.addActionListener(e -> addNewEvent()); // trigger func
 
-        eventTypeDropDown = new JComboBox<>(new String[]{"Deadline", "Meeting"});
-        eventTypeDropDown.addActionListener(e -> toggleMeetingFields());
-
-
-        submitButton = new JButton("Add Event");
-        submitButton.addActionListener(e -> addNewEvent());
-
-
+        // modal layout----------------------------
         add(new JLabel("Event Name:"));
-        add(nameField);
+        add(name);
         add(new JLabel("Event Start Time:"));
-        add(dateTimeField);
+        add(dateTime);
         add(new JLabel("Event End Time:"));
-        add(endDateTimeField);
+        add(endDateTimeTxt);
         add(new JLabel("Location:"));
-        add(locationField);
+        add(location);
         add(new JLabel("Event Type:"));
-        add(eventTypeDropDown);
-        add(submitButton);
-
+        add(eventType);
+        add(submit);
         toggleMeetingFields();
-
         setVisible(true);
     }
 
-    // toggle visibility of Meeting-specific fields
-    private void toggleMeetingFields() {
-        boolean isMeeting = eventTypeDropDown.getSelectedItem().equals("Meeting");
-        endDateTimeField.setVisible(isMeeting);
-        locationField.setVisible(isMeeting);
+    // visibility controls
+    private void toggleMeetingFields()
+    {
+        boolean isMeeting = eventType.getSelectedItem().equals("Meeting");
+        endDateTimeTxt.setVisible(isMeeting);
+        location.setVisible(isMeeting); // allow location
+
         revalidate();
         repaint();
     }
 
     // method to add a new event based on the input fields
-    private void addNewEvent() {
-        String name = nameField.getText();
-        LocalDateTime startDateTime = LocalDateTime.parse(dateTimeField.getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+    private void addNewEvent()
+    {
+        String nameTxt = name.getText();
+        LocalDateTime startDateTime = LocalDateTime.parse(dateTime.getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
 
-
-        if (eventTypeDropDown.getSelectedItem().equals("Deadline")) {
-            Deadline deadline = new Deadline(name, startDateTime);
-            eventListPanel.addEvent(deadline);
-        } else if (eventTypeDropDown.getSelectedItem().equals("Meeting")) {
-            LocalDateTime endDateTime = LocalDateTime.parse(endDateTimeField.getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
-            String location = locationField.getText();
-            Meeting meeting = new Meeting(name, startDateTime, endDateTime, location);
-            eventListPanel.addEvent(meeting);
+        if (eventType.getSelectedItem().equals("Deadline"))
+        {
+            Deadline deadline = new Deadline(nameTxt, startDateTime);
+            panel.addEvent(deadline);
         }
-
-        dispose();
+        else if (eventType.getSelectedItem().equals("Meeting"))
+        {
+            LocalDateTime endDateTime = LocalDateTime.parse(endDateTimeTxt.getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+            String locationTxt = location.getText();
+            Meeting meeting = new Meeting(nameTxt, startDateTime, endDateTime, locationTxt);
+            panel.addEvent(meeting);
+        }
+        dispose(); // close after adding event
     }
 }
