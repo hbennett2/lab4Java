@@ -24,7 +24,7 @@ public class EventPanel extends JPanel
     {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         JLabel line = new JLabel("---------------------------------------------------------------------------------------------------------------");
-        JLabel nameLabel = new JLabel("Event Name: " + event.getName());
+        JLabel nameLabel = new JLabel(event.getName());
         nameLabel.setFont(new Font("Arial", Font.BOLD, 20));
         add(line);
         add(nameLabel);
