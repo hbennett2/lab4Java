@@ -34,6 +34,7 @@ public class EventListPanel extends JPanel
         String[] sortBy = {"Sort by Name", "Sort by Name (Reverse)", "Sort by Date", "Sort by Date (Reverse)"}; // list of options
         sortButton = new JComboBox<>(sortBy);
         sortButton.addActionListener(e -> sortEvents((String) sortButton.getSelectedItem()));
+        sortButton.setBackground(Color.WHITE);
         headerPanel.add(sortButton);
 
         // ------------------------------- filter dropdown -------------------------------------------
@@ -46,8 +47,7 @@ public class EventListPanel extends JPanel
                 filterEventsByType((String) filterButton.getSelectedItem());
             }
         });
-
-        headerPanel.add(new JLabel("Filter by Type:"));
+        filterButton.setBackground(Color.WHITE);
         headerPanel.add(filterButton);
 
         // ------------------------------- completion checkbox -------------------------------------------
@@ -61,10 +61,12 @@ public class EventListPanel extends JPanel
                 filterEvents();
             }
         });
+        checkFilter.setBackground(Color.WHITE);
         headerPanel.add(checkFilter);
 
         // ------------------------------- add event button -------------------------------------------
         addEventButton = new JButton("Add Event");
+        addEventButton.setBackground(Color.WHITE);
         addEventButton.addActionListener(e -> new AddEventModal(this)); // call modal
         headerPanel.add(addEventButton);
         add(headerPanel, BorderLayout.NORTH);
