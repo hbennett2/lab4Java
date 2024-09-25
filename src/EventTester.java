@@ -1,53 +1,48 @@
+// Test Calendar -- format Date/time
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class EventTester {
-
-    public static void main(String[] args) {
-        // we will run methods to test our event calendar
-        testDeadline();
-        testMeeting();
-    }
-
-    public static void testDeadline() {
-
-        System.out.println("-----Testing Deadline-----");
-        // deadline date variable
-        LocalDateTime deadlineDateTime = createDateTime("2024-09-20 12:00");
-
-        // creating a deadline event
-        Deadline deadline = new Deadline("Touch base Meeting", deadlineDateTime);
-        System.out.println("Meeting Name: " + deadline.getName());
-        System.out.println("Meeting Time: " + deadline.getDateTime());
-        // mark event as complete
-        deadline.complete();
-        System.out.println("Meeting complete? " + deadline.isComplete());
-    }
-
+public class EventTester
+{
+    // test meeting on console
     public static void testMeeting() {
+        System.out.println("MEETING____________________________________");
+        LocalDateTime startDateTime = createDateTime("2024-09-30 12:00");
+        LocalDateTime endDateTime = createDateTime("2024-09-30 14:00");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
-        System.out.println("-----Testing Meeting-----");
+        Meeting meeting = new Meeting("Overview Meeting", startDateTime, endDateTime, "Room 335");
 
-        // set meeting times
-        LocalDateTime startDateTime = createDateTime("2024-09-20 12:00");
-        LocalDateTime endDateTime = createDateTime("2024-09-20 13:00");
-
-        Meeting meeting = new Meeting("Touch Base Meeting", startDateTime, endDateTime, "Room 202");
-
-        System.out.println("Meeting Name: " + meeting.getName());
-        System.out.println("Meeting Time: " + meeting.getDateTime());
-        System.out.println("Meeting end Time: " + meeting.getEndDateTime());
-        System.out.println("Meeting Location: " + meeting.getLocation());
+        System.out.println("Name: " + meeting.getName());
+        System.out.println("Start Time: " + startDateTime.format(formatter));
+        System.out.println("End Time: " + endDateTime.format(formatter));
+        System.out.println("Location: " + meeting.getLocation());
         System.out.println("Duration: " + meeting.getDuration() + " Minutes");
-        meeting.complete();
-        System.out.println("Meeting complete? " + meeting.isComplete());
-
     }
 
-    // method to format local date time
-    private static LocalDateTime createDateTime(String dateTimeStart) {
+    // test deadline on console
+    public static void testDeadline() {
+        System.out.println("\nDEADLINE-----------------------------------");
 
+        LocalDateTime deadlineDateTime = createDateTime("2024-09-20 14:00");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        return LocalDateTime.parse(dateTimeStart, formatter);
+        Deadline deadline = new Deadline("Final Report", deadlineDateTime);
+
+        System.out.println("Name: " + deadline.getName());
+        System.out.println("Deadline: " + deadlineDateTime.format(formatter));
+    }
+
+    // set date/time format
+    private static LocalDateTime createDateTime(String dateTimeStart) {
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        return LocalDateTime.parse(dateTimeStart, format);
+    }
+
+    public static void main(String[] args)
+    {
+        // func call
+        testMeeting();
+        testDeadline();
     }
 }
