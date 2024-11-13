@@ -6,7 +6,8 @@ import java.time.format.DateTimeFormatter;
 public class EventTester
 {
     // test meeting on console
-    public static void testMeeting() {
+    public static void testMeeting()
+    {
         System.out.println("MEETING____________________________________");
         LocalDateTime startDateTime = createDateTime("2024-09-30 12:00");
         LocalDateTime endDateTime = createDateTime("2024-09-30 14:00");
@@ -22,7 +23,8 @@ public class EventTester
     }
 
     // test deadline on console
-    public static void testDeadline() {
+    public static void testDeadline()
+    {
         System.out.println("\nDEADLINE-----------------------------------");
 
         LocalDateTime deadlineDateTime = createDateTime("2024-09-20 14:00");
@@ -34,7 +36,8 @@ public class EventTester
     }
 
     // set date/time format
-    private static LocalDateTime createDateTime(String dateTimeStart) {
+    private static LocalDateTime createDateTime(String dateTimeStart)
+    {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         return LocalDateTime.parse(dateTimeStart, format);
     }

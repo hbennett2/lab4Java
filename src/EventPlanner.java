@@ -1,5 +1,3 @@
-// Event planner -- Add defaults
-
 import java.awt.*;
 import javax.swing.*;
 import java.time.LocalDateTime;
@@ -14,12 +12,13 @@ public class EventPlanner
 
         EventListPanel eventlistpanel = new EventListPanel(); // instantiate
         addDefaultEvents(eventlistpanel);
+        eventlistpanel.registerObserver(eventlistpanel);
+
         frame.add(eventlistpanel);
         frame.pack();
         frame.setVisible(true);
     }
 
-    // add defaults events
     public static void addDefaultEvents(EventListPanel eventListPanel)
     {
         LocalDateTime mStartDate = LocalDateTime.of(2024, 9, 27, 13, 0);

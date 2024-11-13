@@ -1,5 +1,4 @@
 // Event Type -- Deadline logic
-
 import java.time.LocalDateTime;
 
 public class Deadline extends Event implements Completable
@@ -14,13 +13,16 @@ public class Deadline extends Event implements Completable
     }
 
     // getters-----------------------------------
-    public String getName() {
+    public String getName()
+    {
         return super.getName();
     }
-    public void complete() {
+    public void complete()
+    {
         this.complete = true;
     }
-    public boolean isComplete() {
+    public boolean isComplete()
+    {
         return complete;
     }
 }

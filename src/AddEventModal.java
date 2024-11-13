@@ -89,23 +89,20 @@ public class AddEventModal extends JDialog
     }
 
     // method to add a new event based on the input fields
-    private void addNewEvent()
-    {
+    // In AddEventModal
+    private void addNewEvent() {
         String nameTxt = name.getText();
         LocalDateTime startDateTime = LocalDateTime.parse(dateTime.getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
 
-        if (eventType.getSelectedItem().equals("Deadline"))
-        {
-            Deadline deadline = new Deadline(nameTxt, startDateTime);
-            panel.addEvent(deadline);
-        }
-        else if (eventType.getSelectedItem().equals("Meeting"))
-        {
+        Event event;
+        if (eventType.getSelectedItem().equals("Deadline")) {
+            event = EventFactory.createEvent("Deadline", nameTxt, startDateTime, null, null);
+        } else { // Meeting
             LocalDateTime endDateTime = LocalDateTime.parse(endDateTimeTxt.getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
             String locationTxt = location.getText();
-            Meeting meeting = new Meeting(nameTxt, startDateTime, endDateTime, locationTxt);
-            panel.addEvent(meeting);
+            event = EventFactory.createEvent("Meeting", nameTxt, startDateTime, endDateTime, locationTxt);
         }
+        panel.addEvent(event);
         dispose(); // close after adding event
     }
 }

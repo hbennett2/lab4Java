@@ -1,35 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e088732-8ed5-4f22-97f0-4c7d326c5330" name="Changes" comment="" />
+    <list default="true" id="1e088732-8ed5-4f22-97f0-4c7d326c5330" name="Changes" comment="switched format">
+      <change afterPath="$PROJECT_DIR$/src/EventFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EventObserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab2Java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lab4Java.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AddEventModal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddEventModal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Completable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Completable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Deadline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Deadline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventPlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventPlanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventTester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Meeting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Meeting.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;hbennett2&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/hbennett2/lab2Java.git&quot;,
+    &quot;accountId&quot;: &quot;23385ce9-6beb-4e92-a77c-99175c49c581&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2mWZfhLxLDYai9WZsfyTP0aCSsg" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/yourb/IdeaProjects/lab2Java/AddEventModal.java",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/yourb/IdeaProjects/lab2Java/src/Main.java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.EventPlanner.executor&quot;: &quot;Run&quot;,
+    &quot;Application.EventTester.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/yourb/IdeaProjects/lab2Java/AddEventModal.java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/yourb/IdeaProjects/lab2Java/src/Main.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\yourb\IdeaProjects\lab2Java\src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="lab4Java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="lab4Java" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -46,22 +109,136 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1727194401508</updated>
-      <workItem from="1727194402593" duration="81000" />
+      <workItem from="1727194402593" duration="3251000" />
+      <workItem from="1727206958765" duration="7238000" />
+      <workItem from="1727227066020" duration="8587000" />
+      <workItem from="1727298147784" duration="2650000" />
+      <workItem from="1727452062458" duration="37000" />
+      <workItem from="1731524068348" duration="7095000" />
     </task>
+    <task id="LOCAL-00001" summary="added comments">
+      <option name="closed" value="true" />
+      <created>1727236505080</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1727236505080</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added comments">
+      <option name="closed" value="true" />
+      <created>1727236559862</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1727236559862</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added comments">
+      <option name="closed" value="true" />
+      <created>1727236594342</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1727236594342</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added background color">
+      <option name="closed" value="true" />
+      <created>1727236630613</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1727236630613</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added background color">
+      <option name="closed" value="true" />
+      <created>1727236725943</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727236725943</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fixed checkbox filter issue">
+      <option name="closed" value="true" />
+      <created>1727236999820</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1727236999820</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added center alignment">
+      <option name="closed" value="true" />
+      <created>1727298538435</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1727298538435</updated>
+    </task>
+    <task id="LOCAL-00008" summary="asthetic changes (idk how to spell that)">
+      <option name="closed" value="true" />
+      <created>1727298655030</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1727298655030</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added a neat quick view panel (inspired by discord messages)">
+      <option name="closed" value="true" />
+      <created>1727300211934</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1727300211934</updated>
+    </task>
+    <task id="LOCAL-00010" summary="matched light blue color in headerpanel">
+      <option name="closed" value="true" />
+      <created>1727300365541</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1727300365541</updated>
+    </task>
+    <task id="LOCAL-00011" summary="colored buttons white, prettier format">
+      <option name="closed" value="true" />
+      <created>1727300591877</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1727300591877</updated>
+    </task>
+    <task id="LOCAL-00012" summary="switched format">
+      <option name="closed" value="true" />
+      <created>1727300734129</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1727300734129</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added comments" />
+    <MESSAGE value="added background color" />
+    <MESSAGE value="fixed checkbox filter issue" />
+    <MESSAGE value="added center alignment" />
+    <MESSAGE value="asthetic changes (idk how to spell that)" />
+    <MESSAGE value="added a neat quick view panel (inspired by discord messages)" />
+    <MESSAGE value="matched light blue color in headerpanel" />
+    <MESSAGE value="colored buttons white, prettier format" />
+    <MESSAGE value="switched format" />
+    <option name="LAST_COMMIT_MESSAGE" value="switched format" />
   </component>
 </project>
