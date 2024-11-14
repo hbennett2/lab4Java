@@ -29,5 +29,9 @@ public class EventPlanner
         LocalDateTime dDate = LocalDateTime.of(2024, 12, 30, 12, 0);
         Deadline deadline = new Deadline("Finish Lab", dDate);
         eventListPanel.addEvent(deadline);
+
+        LocalDateTime ddDate = LocalDateTime.of(2025, 11, 30, 12, 0);
+        Deadline ddeadline = new Deadline("Turn in Final", ddDate);
+        eventListPanel.addEvent(ddeadline);
     }
 }
