@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e088732-8ed5-4f22-97f0-4c7d326c5330" name="Changes" comment="switched format">
-      <change afterPath="$PROJECT_DIR$/src/EventFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EventObserver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab2Java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lab4Java.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AddEventModal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddEventModal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Completable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Completable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Deadline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Deadline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventPlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventPlanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventTester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Meeting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Meeting.java" afterDir="false" />
-    </list>
+    <list default="true" id="1e088732-8ed5-4f22-97f0-4c7d326c5330" name="Changes" comment="added test event" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,6 +85,7 @@
       <workItem from="1727298147784" duration="2650000" />
       <workItem from="1727452062458" duration="37000" />
       <workItem from="1731524068348" duration="7095000" />
+      <workItem from="1731597966109" duration="240000" />
     </task>
     <task id="LOCAL-00001" summary="added comments">
       <option name="closed" value="true" />
@@ -197,7 +183,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727300734129</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added test event">
+      <option name="closed" value="true" />
+      <created>1731598165543</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1731598165543</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,6 +218,7 @@
     <MESSAGE value="matched light blue color in headerpanel" />
     <MESSAGE value="colored buttons white, prettier format" />
     <MESSAGE value="switched format" />
-    <option name="LAST_COMMIT_MESSAGE" value="switched format" />
+    <MESSAGE value="added test event" />
+    <option name="LAST_COMMIT_MESSAGE" value="added test event" />
   </component>
 </project>

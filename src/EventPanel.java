@@ -82,7 +82,7 @@ public class EventPanel extends JPanel
                     if (checkbox.isSelected())
                     {
                         checked.complete();
-                        checkbox.setEnabled(true);
+                        checkbox.setEnabled(true); // allow to be unselected
                     }
                 }
             });
