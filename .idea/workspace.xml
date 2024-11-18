@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e088732-8ed5-4f22-97f0-4c7d326c5330" name="Changes" comment="added test event" />
+    <list default="true" id="1e088732-8ed5-4f22-97f0-4c7d326c5330" name="Changes" comment="added comments">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,6 +88,8 @@
       <workItem from="1727452062458" duration="37000" />
       <workItem from="1731524068348" duration="7095000" />
       <workItem from="1731597966109" duration="240000" />
+      <workItem from="1731683705871" duration="168000" />
+      <workItem from="1731683923430" duration="7000" />
     </task>
     <task id="LOCAL-00001" summary="added comments">
       <option name="closed" value="true" />
@@ -191,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731598165543</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="added comments">
+      <option name="closed" value="true" />
+      <created>1731683832710</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1731683832710</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,7 +221,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added comments" />
     <MESSAGE value="added background color" />
     <MESSAGE value="fixed checkbox filter issue" />
     <MESSAGE value="added center alignment" />
@@ -219,6 +230,7 @@
     <MESSAGE value="colored buttons white, prettier format" />
     <MESSAGE value="switched format" />
     <MESSAGE value="added test event" />
-    <option name="LAST_COMMIT_MESSAGE" value="added test event" />
+    <MESSAGE value="added comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="added comments" />
   </component>
 </project>

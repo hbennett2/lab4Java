@@ -34,6 +34,7 @@ public class Meeting extends Event implements Completable
     {
         return complete;
     }
+
     // calc duration MATH :)
     public int getDuration()
     {
